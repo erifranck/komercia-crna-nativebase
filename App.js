@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { Image } from 'react-native';
-import { Container, Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left, Body } from 'native-base';
+import { Image, StyleSheet, View } from 'react-native';
+import { Container,FooterTab,Footer,Header, Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left, Body } from 'native-base';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import Expo from 'expo';
 
-
-
 import StoreCard from './src/storecard';
+import FooterTabs from './src/footerTab';
 
 export default class CardImageExample extends Component {
 
@@ -20,18 +19,71 @@ export default class CardImageExample extends Component {
       render() {
         return (
           <Container>
-            <Content>
+
+            <Header/>
+
+            <Content style={{padding: 10}}>
+
               <StoreCard />
-              <Grid>
-                <Col style={{ backgroundColor: '#D954D7', height: 200 }}>
-
-
-                </Col>
-                <Col style={{ backgroundColor: '#D93735', height: 200 }}></Col>
-              </Grid>
-
             </Content>
+
+              <FooterTabs/>
+
           </Container>
         );
       }
     }
+
+
+  const styles = StyleSheet.create({
+
+  artistBox:
+  {
+    flexDirection: 'row',
+    margin: 5,
+    backgroundColor: 'white',
+    shadowColor: 'black',
+    shadowOpacity: .2,
+    shadowOffset:
+      {
+        height:1,
+        width:-1,
+      },
+      elevation: 2,
+  },
+  image:
+  {
+    width: 180,
+    height: 150,
+    backgroundColor: 'yellow',
+  },
+  info:
+  {
+    flex:1,
+    flexDirection: 'column',
+    alignItems:'center',
+  },
+  artist:
+  {
+    fontSize: 16,
+    marginTop: 15,
+    color: 'gray',
+  },
+  row:
+  {
+   flexDirection: 'row',
+   justifyContent: 'space-between',
+   marginHorizontal: 30,
+   marginTop: 15,
+  },
+  iconContainer:
+  {
+    flex:1,
+    alignItems: 'center',
+  },
+  count:
+  {
+    color: 'gray',
+  }
+
+});
